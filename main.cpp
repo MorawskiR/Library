@@ -25,9 +25,12 @@ int main()
     switch (choice)
     {
     case 1 :
+    {
         std::cout<<"Input password: "; std::cin>>password;
         std::cout<<"Repeat password: "; std::cin>>repeatPassword;
-        auto result = checkPassword(password1, password2);
+        auto result = checkPassword(password, repeatPassword);
+        std::cout << getErrorMessage(result) << "\n";
+    }
         // std::cout<< getErrorMessage(result);
         break;
 

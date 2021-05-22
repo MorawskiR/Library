@@ -27,7 +27,7 @@ passValidity checkPassword(std::string password1, std::string password2)
 
  std::string getErrorMessage(passValidity msg)
  {
-    return "";
+    return "works";
  }
 void Login(){
     std::cout<<"aaa";
