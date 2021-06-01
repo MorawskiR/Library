@@ -1,12 +1,17 @@
 
 
- #include "lib.hpp"
- 
- #include <iostream>
- #include <map>
- #include <algorithm>
+#include "lib.hpp"
+#include <string>
+#include <iostream>
+#include <map>
+#include <algorithm>
+
 //std::map<std::string, std::string> LoginAndPassword {"admin", "admin"};
 std::map<std::string, std::string> LoginAndPassword { {"admin","admin"} };
+std::string a;
+std::string b;
+std::string c;
+std::string d;
 
 
  void DisplayMainMenu()
@@ -21,25 +26,25 @@ std::map<std::string, std::string> LoginAndPassword { {"admin","admin"} };
 
 std::string getErrorMessage(ErrorCode msg)
 {
-      switch (msg)
-    {
-    case ErrorCode::PasswordNeedsAtLeastNineCharacters:
-    return "Password needs to have at least nine characters";
-    break;
-    case ErrorCode::PasswordNeedsAtLeastOneNumber:
-    return "Password needs to have at least one number";
-    break;
-    case ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter:
-    return "Password needs to have at least one special character";
-    break;
-    case ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter:
-    return "Password needs to have at least one uppercase letter";
-    break;
-    case ErrorCode::PasswordsDoNotMatch:
-    return "Passwords do not match";
-    break;      
-    }
-    return "Ok";
+    switch (msg)
+        {
+        case ErrorCode::PasswordNeedsAtLeastNineCharacters:
+            return "Password needs to have at least nine characters";
+        break;
+        case ErrorCode::PasswordNeedsAtLeastOneNumber:
+            return "Password needs to have at least one number";
+        break;
+        case ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter:
+            return "Password needs to have at least one special character";
+        break;
+        case ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter:
+            return "Password needs to have at least one uppercase letter";
+        break;
+        case ErrorCode::PasswordsDoNotMatch:
+            return "Passwords do not match";
+        break;      
+        }
+    return "Ok account has been created";
 }
 bool doPasswordsMatch(std::string password1, std::string password2)
 {
@@ -75,7 +80,7 @@ ErrorCode checkPasswordRules(std::string pass)
     return ErrorCode::Ok;
 }
 
-    ErrorCode checkPassword(std::string pass1, std::string pass2)
+ErrorCode checkPassword(std::string pass1, std::string pass2)
     {
         if(doPasswordsMatch(pass1, pass2))
         {
@@ -84,7 +89,25 @@ ErrorCode checkPasswordRules(std::string pass)
         return ErrorCode::PasswordsDoNotMatch;
     }
 
-void Login(){
-    std::cout<<"aaa";
+void Login(const std::map<std::string, std::string>& map)
+{
+       for (auto& x: map) {
+             a = x.first;
+             b = x.second;
+        }
+    
+     for (auto& x: LoginAndPassword) {
+             c = x.first;
+             d = x.second;
+        }
+        if (a == c || b ==d )
+        {
+            std::cout<<"Login and password correct ";
+        }
+
+
+
 }
+  
+
 

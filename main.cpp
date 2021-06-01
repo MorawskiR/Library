@@ -17,6 +17,8 @@ int main()
     
     std::string password;
     std::string repeatPassword;
+    std::string login = "";
+   
     std::cin>>choice ;
 
     std::string password1 = "aaaa" ;
@@ -33,7 +35,14 @@ int main()
         }
             break;
         case 2:
-            Login();
+        {
+        std::cout<<"Input login: "; std::cin>>login;
+        std::cout<<"Repeat password: "; std::cin>>password;
+        std::map<std::string, std::string> UsersData { {login,password} };
+        
+        Login(UsersData);
+
+        }
             break;
         default:
             break;
